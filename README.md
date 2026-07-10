@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dialysis On Go — Angular 17 Frontend Booking App
 
 A polished healthcare travel booking demo built with Angular 17. This frontend-only app showcases a multi-step clinic search, booking, payment summary, and success flow using mocked clinic data.
@@ -66,3 +67,6 @@ src/app/
 - Add authentication and user profiles
 - Add payment gateway integration
 - Implement unit and end-to-end tests
+=======
+# Funnel-creation
+>>>>>>> 807bf4aec709a20a716e625a891bcb9076233267
