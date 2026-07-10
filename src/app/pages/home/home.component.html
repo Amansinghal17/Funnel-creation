@@ -1,0 +1,72 @@
+<app-hero></app-hero>
+
+<section class="search-section">
+  <div class="container">
+    <app-search-bar [cities]="cities" (search)="onSearch($event)"></app-search-bar>
+  </div>
+</section>
+
+<section class="section featured" *ngIf="featuredClinics.length">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Featured Clinics</h2>
+      <p>Top-rated dialysis centres booked by travellers this month</p>
+    </div>
+    <div class="clinic-grid">
+      <app-clinic-card *ngFor="let clinic of featuredClinics" [clinic]="clinic"></app-clinic-card>
+    </div>
+  </div>
+</section>
+
+<section class="section why">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Why Choose DialysisOnGo</h2>
+      <p>Built for patients who refuse to let treatment stop their travel plans</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item" *ngFor="let item of whyChooseUs">
+        <div class="why-icon"><mat-icon>{{ item.icon }}</mat-icon></div>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section how">
+  <div class="container">
+    <div class="section-heading">
+      <h2>How It Works</h2>
+      <p>Four simple steps between you and worry-free travel</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-item" *ngFor="let item of howItWorks">
+        <div class="how-step">{{ item.step }}</div>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-heading">
+      <h2>What Our Patients Say</h2>
+      <p>Real experiences from travellers who booked with us</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card dog-card" *ngFor="let t of testimonials">
+        <p class="quote">&ldquo;{{ t.quote }}&rdquo;</p>
+        <div class="person">
+          <img [src]="t.avatar" [alt]="t.name" />
+          <div>
+            <strong>{{ t.name }}</strong>
+            <span>{{ t.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

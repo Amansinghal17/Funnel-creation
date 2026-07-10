@@ -1,0 +1,95 @@
+.clinic-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -14px rgba(21, 101, 192, 0.28);
+  }
+}
+
+.media {
+  position: relative;
+  height: 170px;
+
+  img { width: 100%; height: 100%; object-fit: cover; }
+
+  .price-tag {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--dog-accent);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 100px;
+  }
+}
+
+.body {
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  h3 { font-size: 16.5px; font-family: 'Poppins', sans-serif; line-height: 1.3; }
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  white-space: nowrap;
+  color: #f9a825;
+  font-weight: 700;
+  font-size: 13.5px;
+
+  mat-icon { font-size: 18px; width: 18px; height: 18px; }
+  small { color: var(--dog-text-muted); font-weight: 400; margin-left: 2px; }
+}
+
+.location, .slots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: var(--dog-text-muted);
+
+  mat-icon { font-size: 18px; width: 18px; height: 18px; color: var(--dog-primary); }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+
+  .chip {
+    font-size: 11.5px;
+    font-weight: 600;
+    background: var(--dog-accent-light);
+    color: var(--dog-accent);
+    padding: 3px 9px;
+    border-radius: 100px;
+  }
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  padding-top: 8px;
+
+  button { flex: 1; }
+}

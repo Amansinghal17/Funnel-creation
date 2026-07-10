@@ -1,0 +1,18 @@
+<section class="page clinic-list-page">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Available Clinics <span *ngIf="city">in {{ city }}</span></h2>
+      <p *ngIf="!loading">{{ clinics.length }} clinic(s) found</p>
+    </div>
+
+    <app-loader *ngIf="loading" message="Finding the best clinics for you..."></app-loader>
+
+    <div class="clinic-grid" *ngIf="!loading && clinics.length">
+      <app-clinic-card *ngFor="let clinic of clinics" [clinic]="clinic"></app-clinic-card>
+    </div>
+
+    <div class="empty-state" *ngIf="!loading && !clinics.length">
+      <p>No clinics matched your search. Try a different city or hospital name.</p>
+    </div>
+  </div>
+</section>

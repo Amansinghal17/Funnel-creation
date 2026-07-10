@@ -1,0 +1,23 @@
+<div class="summary dog-card">
+  <div class="summary-header">
+    <img [src]="clinic.image" [alt]="clinic.name" />
+    <div>
+      <h3>{{ clinic.name }}</h3>
+      <p>{{ clinic.city }}, {{ clinic.country }}</p>
+    </div>
+  </div>
+
+  <div class="summary-rows">
+    <div class="row"><span>Patient</span><strong>{{ booking.patientName }}</strong></div>
+    <div class="row"><span>Age / Gender</span><strong>{{ booking.age }} / {{ booking.gender }}</strong></div>
+    <div class="row"><span>Contact</span><strong>{{ booking.phone }}</strong></div>
+    <div class="row"><span>Appointment Date</span><strong>{{ booking.preferredDate | date: 'mediumDate' }}</strong></div>
+    <div class="row"><span>Time Slot</span><strong>{{ booking.preferredTime }}</strong></div>
+    <div class="row" *ngIf="booking.reportFileName"><span>Report</span><strong>{{ booking.reportFileName }}</strong></div>
+  </div>
+
+  <div class="summary-total">
+    <span>Total Amount</span>
+    <strong>${{ clinic.pricePerSession }}</strong>
+  </div>
+</div>

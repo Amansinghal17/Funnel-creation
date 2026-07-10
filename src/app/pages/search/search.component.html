@@ -1,0 +1,14 @@
+<section class="page search-page">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Search Dialysis Clinics</h2>
+      <p>Search by destination city or hospital name to see available clinics</p>
+    </div>
+
+    <app-search-bar [cities]="cities" (search)="onSearch($event)"></app-search-bar>
+
+    <div class="tip">
+      <strong>Tip:</strong> Leave a field blank to search across all cities or hospitals.
+    </div>
+  </div>
+</section>

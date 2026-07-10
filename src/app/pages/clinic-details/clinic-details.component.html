@@ -1,0 +1,71 @@
+<app-loader *ngIf="loading" message="Loading clinic details..."></app-loader>
+
+<section class="page clinic-details-page" *ngIf="!loading && clinic">
+  <div class="banner">
+    <img [src]="clinic.image" [alt]="clinic.name" />
+    <div class="banner-overlay">
+      <div class="container">
+        <a routerLink="/clinics" class="back-link"><mat-icon>arrow_back</mat-icon> Back to clinics</a>
+        <h1>{{ clinic.name }}</h1>
+        <p><mat-icon>location_on</mat-icon>{{ clinic.city }}, {{ clinic.country }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container details-grid">
+    <div class="main-col">
+      <div class="dog-card block">
+        <h3>About This Clinic</h3>
+        <p>{{ clinic.description }}</p>
+        <div class="rating-row">
+          <mat-icon>star</mat-icon>
+          <strong>{{ clinic.rating }}</strong>
+          <span>({{ clinic.reviewsCount }} reviews)</span>
+        </div>
+      </div>
+
+      <div class="dog-card block">
+        <h3>Facilities</h3>
+        <div class="facility-grid">
+          <span class="facility-chip" *ngFor="let f of clinic.facilities">
+            <mat-icon>check_circle</mat-icon>{{ f }}
+          </span>
+        </div>
+      </div>
+
+      <div class="dog-card block">
+        <h3>Doctors</h3>
+        <div class="doctor-list">
+          <div class="doctor" *ngFor="let doc of clinic.doctors">
+            <img [src]="doc.image" [alt]="doc.name" />
+            <div>
+              <strong>{{ doc.name }}</strong>
+              <span>{{ doc.specialization }} &middot; {{ doc.experience }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dog-card block">
+        <h3>Available Time Slots</h3>
+        <div class="slot-grid">
+          <span class="slot-chip" *ngFor="let slot of clinic.availableSlots">{{ slot }}</span>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side-col">
+      <div class="dog-card booking-box">
+        <span class="price-label">Session Price</span>
+        <div class="price">${{ clinic.pricePerSession }}</div>
+        <div class="modality-list">
+          <span class="chip" *ngFor="let m of clinic.modality">{{ m }}</span>
+        </div>
+        <button mat-flat-button color="primary" (click)="bookNow()">
+          <mat-icon>event_available</mat-icon>
+          Book Appointment
+        </button>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+// ------------------------------------------------------------------
+// Global styles + custom Angular Material theme
+// Healthcare palette: white background, blue primary, green accent
+// ------------------------------------------------------------------
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dog-primary: mat.define-palette(mat.$blue-palette, 700, 400, 900);
+$dog-accent: mat.define-palette(mat.$green-palette, 600, 300, 800);
+$dog-warn: mat.define-palette(mat.$red-palette);
+
+$dog-theme: mat.define-light-theme((
+  color: (
+    primary: $dog-primary,
+    accent: $dog-accent,
+    warn: $dog-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($dog-theme);
+
+:root {
+  --dog-primary: #1565c0;
+  --dog-primary-dark: #0d47a1;
+  --dog-accent: #2e7d32;
+  --dog-accent-light: #e8f5e9;
+  --dog-bg: #ffffff;
+  --dog-bg-soft: #f4f8fb;
+  --dog-text: #1c2b33;
+  --dog-text-muted: #5b6b73;
+  --dog-border: #e1e8ec;
+  --dog-radius: 14px;
+  --dog-shadow: 0 8px 24px -12px rgba(21, 101, 192, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--dog-bg);
+  color: var(--dog-text);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    color: var(--dog-text);
+  }
+
+  p {
+    color: var(--dog-text-muted);
+    margin-top: 8px;
+  }
+}
+
+.dog-card {
+  background: #fff;
+  border: 1px solid var(--dog-border);
+  border-radius: var(--dog-radius);
+  box-shadow: var(--dog-shadow);
+}
+
+a { color: inherit; }
+
+// Utility for full-page route containers
+.page {
+  min-height: calc(100vh - 260px);
+  background: var(--dog-bg-soft);
+}

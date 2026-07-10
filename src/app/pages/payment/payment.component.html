@@ -1,0 +1,21 @@
+<app-loader *ngIf="loading" message="Loading your booking summary..."></app-loader>
+
+<section class="page payment-page" *ngIf="!loading && clinic && booking">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Review &amp; Pay</h2>
+      <p>Confirm your details before completing the booking</p>
+    </div>
+
+    <div class="payment-wrap">
+      <app-payment-summary [clinic]="clinic" [booking]="booking"></app-payment-summary>
+
+      <button mat-flat-button color="primary" class="pay-btn" (click)="payNow()" [disabled]="processing">
+        <mat-icon *ngIf="!processing">lock</mat-icon>
+        {{ processing ? 'Processing...' : 'Pay Now' }}
+      </button>
+
+      <p class="disclaimer">This is a demo checkout - no real payment will be charged.</p>
+    </div>
+  </div>
+</section>

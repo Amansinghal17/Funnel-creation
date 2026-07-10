@@ -1,0 +1,74 @@
+<form class="booking-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="row">
+    <mat-form-field appearance="outline" class="grow">
+      <mat-label>Patient Name</mat-label>
+      <input matInput formControlName="patientName" placeholder="Full name" />
+      <mat-error *ngIf="f['patientName'].hasError('required')">Patient name is required.</mat-error>
+      <mat-error *ngIf="f['patientName'].hasError('minlength')">Name is too short.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="small">
+      <mat-label>Age</mat-label>
+      <input matInput type="number" formControlName="age" />
+      <mat-error *ngIf="f['age'].hasError('required')">Required.</mat-error>
+      <mat-error *ngIf="f['age'].hasError('min') || f['age'].hasError('max')">Enter a valid age.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="grow">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+      <mat-error *ngIf="f['gender'].hasError('required')">Please select a gender.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="grow">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phone" placeholder="+91 98765 43210" />
+      <mat-error *ngIf="f['phone'].hasError('required')">Phone number is required.</mat-error>
+      <mat-error *ngIf="f['phone'].hasError('pattern')">Enter a valid phone number.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" placeholder="you@example.com" />
+    <mat-error *ngIf="f['email'].hasError('required')">Email is required.</mat-error>
+    <mat-error *ngIf="f['email'].hasError('email')">Enter a valid email address.</mat-error>
+  </mat-form-field>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="grow">
+      <mat-label>Preferred Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="preferredDate" [min]="minDate" />
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="f['preferredDate'].hasError('required')">Please choose a date.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="grow">
+      <mat-label>Preferred Time</mat-label>
+      <mat-select formControlName="preferredTime">
+        <mat-option *ngFor="let slot of clinic.availableSlots" [value]="slot">{{ slot }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="f['preferredTime'].hasError('required')">Please select a time slot.</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="upload">
+    <label for="report">
+      <mat-icon>upload_file</mat-icon>
+      <span>{{ selectedFileName ?? 'Upload Medical Report (optional)' }}</span>
+    </label>
+    <input id="report" type="file" accept=".pdf,.jpg,.jpeg,.png" (change)="onFileSelected($event)" hidden />
+  </div>
+
+  <button mat-flat-button color="primary" type="submit" class="submit-btn">
+    Continue to Payment
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+</form>

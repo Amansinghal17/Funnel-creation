@@ -1,0 +1,13 @@
+.search-page {
+  padding: 56px 0 90px;
+}
+
+.tip {
+  max-width: 640px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--dog-text-muted);
+
+  strong { color: var(--dog-primary); }
+}

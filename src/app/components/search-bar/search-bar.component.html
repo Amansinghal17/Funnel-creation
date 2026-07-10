@@ -1,0 +1,21 @@
+<form class="search-bar dog-card" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" class="field">
+    <mat-label>City</mat-label>
+    <mat-select formControlName="city">
+      <mat-option value="">Any city</mat-option>
+      <mat-option *ngFor="let c of cities" [value]="c">{{ c }}</mat-option>
+    </mat-select>
+    <mat-icon matPrefix>location_on</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="field">
+    <mat-label>Hospital name</mat-label>
+    <input matInput formControlName="hospital" placeholder="e.g. Al Noor Hospital" />
+    <mat-icon matPrefix>local_hospital</mat-icon>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" type="submit" class="search-btn">
+    <mat-icon>search</mat-icon>
+    Search
+  </button>
+</form>

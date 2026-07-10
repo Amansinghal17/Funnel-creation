@@ -1,0 +1,36 @@
+<article class="clinic-card dog-card">
+  <div class="media">
+    <img [src]="clinic.image" [alt]="clinic.name" loading="lazy" />
+    <span class="price-tag">${{ clinic.pricePerSession }}/session</span>
+  </div>
+
+  <div class="body">
+    <div class="top-row">
+      <h3>{{ clinic.name }}</h3>
+      <div class="rating">
+        <mat-icon>star</mat-icon>
+        <span>{{ clinic.rating }}</span>
+        <small>({{ clinic.reviewsCount }})</small>
+      </div>
+    </div>
+
+    <p class="location">
+      <mat-icon>location_on</mat-icon>
+      {{ clinic.city }}, {{ clinic.country }}
+    </p>
+
+    <div class="slots">
+      <mat-icon>schedule</mat-icon>
+      <span>{{ clinic.availableSlots.length }} slots today</span>
+    </div>
+
+    <div class="chips">
+      <span class="chip" *ngFor="let m of clinic.modality">{{ m }}</span>
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button color="primary" (click)="viewDetails()">Details</button>
+      <button mat-flat-button color="primary" (click)="bookNow()">Book Now</button>
+    </div>
+  </div>
+</article>

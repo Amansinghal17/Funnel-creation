@@ -1,0 +1,42 @@
+.summary {
+  padding: 22px;
+}
+
+.summary-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--dog-border);
+  margin-bottom: 16px;
+
+  img { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; }
+  h3 { font-size: 16px; font-family: 'Poppins', sans-serif; }
+  p { font-size: 13px; color: var(--dog-text-muted); margin-top: 2px; }
+}
+
+.summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+
+    span { color: var(--dog-text-muted); }
+  }
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--dog-border);
+  font-size: 16px;
+
+  strong { color: var(--dog-primary); font-size: 22px; font-family: 'Poppins', sans-serif; }
+}

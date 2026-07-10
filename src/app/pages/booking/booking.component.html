@@ -1,0 +1,14 @@
+<app-loader *ngIf="loading" message="Preparing your booking form..."></app-loader>
+
+<section class="page booking-page" *ngIf="!loading && clinic">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Book Your Appointment</h2>
+      <p>{{ clinic.name }} &middot; {{ clinic.city }}, {{ clinic.country }}</p>
+    </div>
+
+    <div class="booking-wrap dog-card">
+      <app-booking-form [clinic]="clinic" (submitBooking)="onBookingSubmitted($event)"></app-booking-form>
+    </div>
+  </div>
+</section>

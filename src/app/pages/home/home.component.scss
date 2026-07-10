@@ -1,0 +1,108 @@
+.search-section {
+  margin-top: -28px;
+  position: relative;
+  z-index: 5;
+  padding-bottom: 8px;
+}
+
+.clinic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 960px) { .clinic-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .clinic-grid { grid-template-columns: 1fr; } }
+
+.why {
+  background: var(--dog-bg-soft);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 860px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .why-grid { grid-template-columns: 1fr; } }
+
+.why-item {
+  text-align: center;
+  padding: 8px;
+
+  .why-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: var(--dog-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon { color: var(--dog-primary); font-size: 26px; width: 26px; height: 26px; }
+  }
+
+  h4 { font-family: 'Poppins', sans-serif; font-size: 16px; margin-bottom: 8px; }
+  p { color: var(--dog-text-muted); font-size: 14px; line-height: 1.6; }
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 860px) { .how-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .how-grid { grid-template-columns: 1fr; } }
+
+.how-item {
+  text-align: center;
+
+  .how-step {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: var(--dog-primary);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  h4 { font-family: 'Poppins', sans-serif; font-size: 16px; margin-bottom: 8px; }
+  p { color: var(--dog-text-muted); font-size: 14px; line-height: 1.6; }
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 860px) { .testimonial-grid { grid-template-columns: 1fr; } }
+
+.testimonial-card {
+  padding: 24px;
+
+  .quote {
+    color: var(--dog-text);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    min-height: 90px;
+  }
+
+  .person {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+    strong { display: block; font-size: 14px; }
+    span { font-size: 12.5px; color: var(--dog-text-muted); }
+  }
+}

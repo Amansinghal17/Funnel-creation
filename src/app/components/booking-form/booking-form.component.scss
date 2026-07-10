@@ -1,0 +1,44 @@
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+
+  @media (max-width: 560px) { flex-direction: column; gap: 0; }
+}
+
+.grow { flex: 1; }
+.small { width: 120px; }
+
+.upload {
+  margin: 6px 0 20px;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px dashed var(--dog-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    color: var(--dog-text-muted);
+    font-size: 14px;
+    transition: border-color .15s ease, background .15s ease;
+
+    &:hover { border-color: var(--dog-primary); background: var(--dog-bg-soft); }
+    mat-icon { color: var(--dog-primary); }
+  }
+}
+
+.submit-btn {
+  align-self: flex-end;
+  height: 48px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
