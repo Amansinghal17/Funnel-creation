@@ -68,5 +68,3 @@ src/app/
 - Add payment gateway integration
 - Implement unit and end-to-end tests
 =======
-# Funnel-creation
->>>>>>> 807bf4aec709a20a716e625a891bcb9076233267
